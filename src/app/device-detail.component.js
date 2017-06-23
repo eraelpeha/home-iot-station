@@ -38,7 +38,8 @@ __decorate([
 DeviceDetailComponent = __decorate([
     core_1.Component({
         selector: 'device-detail',
-        templateUrl: './device-detail.component.html'
+        templateUrl: './device-detail.component.html',
+        styleUrls: ['./device-detail.component.css']
     }),
     __metadata("design:paramtypes", [device_service_1.DeviceService,
         router_1.ActivatedRoute,

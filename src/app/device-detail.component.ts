@@ -9,7 +9,8 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: 'device-detail',
-    templateUrl: './device-detail.component.html'
+    templateUrl: './device-detail.component.html',
+    styleUrls: [ './device-detail.component.css' ]
 })
 
 export class DeviceDetailComponent implements OnInit {
