@@ -1,0 +1,10 @@
+<div *ngIf="device">
+    <h2>Details of {{ device.name }}</h2>
+    <div>
+        <label>Id:</label> {{ device.id }}
+    </div>
+    <div>
+        <label>Name:</label> <input [(ngModel)]="device.name" placeholder="name" />
+    </div>
+    <button (click)="goBack()">Back</button>
+</div>

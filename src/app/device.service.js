@@ -13,6 +13,10 @@ var DeviceService = (function () {
     DeviceService.prototype.getDevices = function () {
         return Promise.resolve(mock_devices_1.DEVICES);
     };
+    DeviceService.prototype.getDevice = function (id) {
+        return this.getDevices()
+            .then(function (devices) { return devices.find(function (device) { return device.id === id; }); });
+    };
     return DeviceService;
 }());
 DeviceService = __decorate([
