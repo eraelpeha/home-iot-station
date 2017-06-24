@@ -30,6 +30,28 @@ var DevicesComponent = (function () {
     DevicesComponent.prototype.gotoDetail = function () {
         this.router.navigate(['detail', this.selectedDevice.id]);
     };
+    DevicesComponent.prototype.add = function (name) {
+        var _this = this;
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this.deviceService.create(name)
+            .then(function (device) {
+            _this.devices.push(device);
+            _this.selectedDevice = null;
+        });
+    };
+    DevicesComponent.prototype.delete = function (device) {
+        var _this = this;
+        this.deviceService.delete(device.id)
+            .then(function () {
+            _this.devices = _this.devices.filter(function (d) { return d !== device; });
+            if (_this.selectedDevice === device) {
+                _this.selectedDevice = null;
+            }
+        });
+    };
     return DevicesComponent;
 }());
 DevicesComponent = __decorate([

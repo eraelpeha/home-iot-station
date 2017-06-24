@@ -32,4 +32,9 @@ export class DeviceDetailComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
+
+    save(): void {
+        this.deviceService.update(this.device)
+            .then(() => this.goBack());
+    }
 }

@@ -38,4 +38,22 @@ export class DevicesComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['detail', this.selectedDevice.id]);
   }
+    
+  add(name: String): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.deviceService.create(name)
+      .then(device => {
+        this.devices.push(device);
+        this.selectedDevice = null;
+      });
+  }
+
+  delete(device: Device): void {
+    this.deviceService.delete(device.id)
+      .then(() => {
+        this.devices = this.devices.filter(d => d !== device);
+        if (this.selectedDevice === device) { this.selectedDevice = null; }
+      });
+  }
 }

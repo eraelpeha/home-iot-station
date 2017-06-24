@@ -29,6 +29,11 @@ var DeviceDetailComponent = (function () {
     DeviceDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
+    DeviceDetailComponent.prototype.save = function () {
+        var _this = this;
+        this.deviceService.update(this.device)
+            .then(function () { return _this.goBack(); });
+    };
     return DeviceDetailComponent;
 }());
 __decorate([
